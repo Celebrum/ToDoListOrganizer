@@ -32,5 +32,28 @@
         </section>
     </main>
     <script src="/static/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch project details
+            fetch('/api/project-details')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('project-name').textContent = data.name;
+                    document.getElementById('project-description').textContent = data.description;
+                });
+
+            // Fetch tasks
+            fetch('/api/tasks')
+                .then(response => response.json())
+                .then(tasks => {
+                    const taskList = document.getElementById('tasks');
+                    tasks.forEach(task => {
+                        const li = document.createElement('li');
+                        li.textContent = task.title;
+                        taskList.appendChild(li);
+                    });
+                });
+        });
+    </script>
 </body>
 </html>
