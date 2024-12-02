@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Organizer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>To-Do List Organizer</h1>
+    </header>
+    <main>
+        <section id="task-management">
+            <h2>Task Management</h2>
+            <form id="add-task-form">
+                <input type="text" id="task-title" placeholder="Task Title" required>
+                <input type="date" id="task-due-date" required>
+                <select id="task-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <select id="task-project">
+                    <!-- Project options will be populated dynamically -->
+                </select>
+                <button type="submit">Add Task</button>
+            </form>
+            <ul id="task-list">
+                <!-- Task items will be populated dynamically -->
+            </ul>
+        </section>
+        <section id="project-categorization">
+            <h2>Project Categorization</h2>
+            <form id="add-project-form">
+                <input type="text" id="project-name" placeholder="Project Name" required>
+                <input type="text" id="project-description" placeholder="Project Description" required>
+                <button type="submit">Add Project</button>
+            </form>
+            <ul id="project-list">
+                <!-- Project items will be populated dynamically -->
+            </ul>
+        </section>
+    </main>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

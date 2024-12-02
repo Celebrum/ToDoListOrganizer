@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project View</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Project View</h1>
+    </header>
+    <main>
+        <section id="project-details">
+            <h2>Project Details</h2>
+            <p id="project-name"></p>
+            <p id="project-description"></p>
+        </section>
+        <section id="task-list">
+            <h2>Tasks</h2>
+            <ul id="tasks">
+                <!-- Task items will be populated dynamically -->
+            </ul>
+        </section>
+        <section id="add-edit-project">
+            <h2>Add/Edit Project</h2>
+            <form id="add-edit-project-form">
+                <input type="text" id="project-name-input" placeholder="Project Name" required>
+                <input type="text" id="project-description-input" placeholder="Project Description" required>
+                <button type="submit">Save Project</button>
+            </form>
+        </section>
+    </main>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
