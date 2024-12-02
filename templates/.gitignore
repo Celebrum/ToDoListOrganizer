@@ -13,3 +13,17 @@ Heimdall/Heimdall/
 HydDdR-a/HydDdR-a/
 MindS/MindsDB/
 NeuUuR-o/NeuUuR-o/
+# filepath: /C:/Users/Owner/Desktop/task orginiser/ToDoListOrganizer/templates/.gitignore
+node_modules/
+*.log
+*.tmp
+.DS_Store
+/static/css/style.css
+/static/js/main.js
+CeLeBrUm/CeLeBrUm-1/
+CeLeBrUm/CeLeBrUm/
+CodeProject.AI-Server/
+Heimdall/Heimdall/
+HydDdR-a/HydDdR-a/
+MindS/MindsDB/
+NeuUuR-o/NeuUuR-o/
