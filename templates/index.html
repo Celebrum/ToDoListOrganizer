@@ -14,13 +14,17 @@
         <section id="task-management">
             <h2>Task Management</h2>
             <form id="add-task-form">
+                <label for="task-title">Task Title:</label>
                 <input type="text" id="task-title" placeholder="Task Title" required>
+                <label for="task-due-date">Due Date:</label>
                 <input type="date" id="task-due-date" required>
+                <label for="task-priority">Priority:</label>
                 <select id="task-priority">
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
                     <option value="high">High</option>
                 </select>
+                <label for="task-project">Project:</label>
                 <select id="task-project">
                     <!-- Project options will be populated dynamically -->
                 </select>
@@ -33,7 +37,9 @@
         <section id="project-categorization">
             <h2>Project Categorization</h2>
             <form id="add-project-form">
+                <label for="project-name">Project Name:</label>
                 <input type="text" id="project-name" placeholder="Project Name" required>
+                <label for="project-description">Project Description:</label>
                 <input type="text" id="project-description" placeholder="Project Description" required>
                 <button type="submit">Add Project</button>
             </form>
@@ -77,4 +83,5 @@
         });
     </script>
 </body>
+</html>
 </html>
