@@ -2,7 +2,10 @@ import requests
 
 class PowerAutomateFlow:
     def __init__(self):
-        self.flow_url = os.getenv('POWER_AUTOMATE_FLOW_URL')
+        import os
+
+        def __init__(self):
+            self.flow_url = os.getenv('POWER_AUTOMATE_FLOW_URL')
 
     def run_flow(self, data):
         headers = {
