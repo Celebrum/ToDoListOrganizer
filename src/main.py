@@ -35,7 +35,7 @@ def mark_task_complete(task_id):
     task = task_manager.mark_task_complete(task_id)
     return jsonify(task), 200
 
-@app.route('/tasks/', methods=['DELETE'])
+@app.route('/tasks/<int:task_id>', methods=['DELETE'])
 def delete_task(task_id):
     task_manager.delete_task(task_id)
     return '', 204
