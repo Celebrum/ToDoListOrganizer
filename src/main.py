@@ -89,12 +89,7 @@ def generate_content():
     prompt = data.get('prompt', '')
 
     # Generate content using GPT-2
-    response = gpt2_flask_api.generate_content(prompt)
-
-    # Implement the content generation rule
-    last_saved_entry = data.get('last_saved_entry', '')
-    opposite_synonym_subject = get_opposite_synonym_subject(last_saved_entry)
-    content = response.choices[0].text.strip()
+    content = gpt2_flask_api.generate_content(prompt)
     return jsonify({'content': content, 'opposite_synonym_subject': opposite_synonym_subject}), 200
 
 def get_opposite_synonym_subject(last_saved_entry):
