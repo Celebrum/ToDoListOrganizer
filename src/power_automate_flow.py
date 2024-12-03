@@ -2,7 +2,7 @@ import requests
 
 class PowerAutomateFlow:
     def __init__(self):
-        self.flow_url = "https://prod-123.westus.logic.azure.com:443/workflows/your-flow-id/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=your-signature"
+        self.flow_url = os.getenv('POWER_AUTOMATE_FLOW_URL')
 
     def run_flow(self, data):
         headers = {
