@@ -2,31 +2,18 @@ from flask import Flask, request, jsonify
 from src.task_manager import TaskManager
 from src.user_auth import UserAuth
 from src.project_manager import ProjectManager
+from src.ffed_framework import FfeDFramework
+from src.power_automate_flow import PowerAutomateFlow
+from src.gpt2_flask_api import GPT2FlaskAPI
 
 app = Flask(__name__)
 
 task_manager = TaskManager()
 user_auth = UserAuth()
 project_manager = ProjectManager()
-
-# Placeholder for FfeD framework integration
-class FfeDFramework:
-    def __init__(self):
-        pass
-
-    def advanced_listing(self):
-        # Implement advanced listing logic
-        pass
-
-    def prediction_system(self):
-        # Implement prediction system logic
-        pass
-
-    def search_and_scrape(self):
-        # Implement search and scrape logic with 75% certainty
-        pass
-
 ffed_framework = FfeDFramework()
+power_automate_flow = PowerAutomateFlow()
+gpt2_flask_api = GPT2FlaskAPI()
 
 @app.route('/tasks', methods=['POST'])
 def add_task():
@@ -48,7 +35,7 @@ def mark_task_complete(task_id):
     task = task_manager.mark_task_complete(task_id)
     return jsonify(task), 200
 
-@app.route('/tasks/<int:task_id>', methods=['DELETE'])
+@app.route('/tasks/<int:task_id>', methods['DELETE'])
 def delete_task(task_id):
     task_manager.delete_task(task_id)
     return '', 204
@@ -89,6 +76,31 @@ def login():
     data = request.get_json()
     token = user_auth.login(data['username'], data['password'])
     return jsonify({'token': token}), 200
+
+@app.route('/automate', methods=['POST'])
+def automate():
+    data = request.get_json()
+    power_automate_flow.run_flow(data)
+    return jsonify({'status': 'Automation started'}), 200
+
+@app.route('/generate_content', methods=['POST'])
+def generate_content():
+    data = request.get_json()
+    prompt = data.get('prompt', '')
+
+    # Generate content using GPT-2
+    response = gpt2_flask_api.generate_content(prompt)
+
+    # Implement the content generation rule
+    last_saved_entry = data.get('last_saved_entry', '')
+    opposite_synonym_subject = get_opposite_synonym_subject(last_saved_entry)
+    content = response.choices[0].text.strip()
+    return jsonify({'content': content, 'opposite_synonym_subject': opposite_synonym_subject}), 200
+
+def get_opposite_synonym_subject(last_saved_entry):
+    # Placeholder function to get the opposite of the synonym of the last subject
+    # Implement the logic to find the opposite synonym subject
+    return "opposite_synonym_subject"
 
 if __name__ == '__main__':
     app.run(debug=True)
