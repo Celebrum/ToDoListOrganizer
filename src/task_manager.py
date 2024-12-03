@@ -54,3 +54,19 @@ class TaskManager:
     def gather_information_for_task(self, task):
         # Placeholder for automatically gathering information for new tasks
         pass
+
+    def validate_task_data(self, task):
+        # Input validation
+        if not task.title or not task.due_date or not task.priority:
+            raise ValueError("Task data is incomplete")
+        # Database constraints
+        if task.priority not in ["Low", "Medium", "High"]:
+            raise ValueError("Invalid priority value")
+        # Data cleaning
+        task.title = task.title.strip()
+        task.due_date = task.due_date.strip()
+        task.priority = task.priority.strip()
+
+    def validate_all_tasks(self):
+        for task in self.tasks:
+            self.validate_task_data(task)

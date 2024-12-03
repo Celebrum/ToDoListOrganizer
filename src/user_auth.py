@@ -21,6 +21,7 @@ class UserAuth:
             raise ValueError("User already exists")
         user = User(username, password)
         self.users[username] = user
+        self.validate_user_data(user)
         return {"username": username}
 
     def login(self, username, password):
@@ -36,3 +37,15 @@ class UserAuth:
     def ensure_ffed_compatibility(self):
         # Placeholder for ensuring compatibility with FfeD framework
         pass
+
+    def validate_user_data(self, user):
+        # Input validation
+        if not user.username or not user.password:
+            raise ValueError("User data is incomplete")
+        # Data cleaning
+        user.username = user.username.strip()
+        user.password = user.password.strip()
+
+    def validate_all_users(self):
+        for user in self.users.values():
+            self.validate_user_data(user)

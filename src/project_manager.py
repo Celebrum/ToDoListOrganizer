@@ -44,3 +44,15 @@ class ProjectManager:
     def gather_information_for_project(self, project):
         # Placeholder for automatically gathering information for new projects
         pass
+
+    def validate_project_data(self, project):
+        # Input validation
+        if not project.name or not project.description:
+            raise ValueError("Project data is incomplete")
+        # Data cleaning
+        project.name = project.name.strip()
+        project.description = project.description.strip()
+
+    def validate_all_projects(self):
+        for project in self.projects:
+            self.validate_project_data(project)
