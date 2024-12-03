@@ -5,7 +5,10 @@ import os
 app = Flask(__name__)
 
 # Load OpenAI API key from environment variable
+# Load OpenAI API key from environment variable
 openai.api_key = os.getenv("OPENAI_API_KEY")
+if not openai.api_key:
+    raise ValueError("OPENAI_API_KEY environment variable is not set")
 
 @app.route('/generate_content', methods=['POST'])
 def generate_content():
