@@ -1,16 +1,14 @@
 import jwt
-import datetime
-from werkzeug.security import generate_password_hash, check_password_hash
 
-SECRET_KEY = 'your_secret_key'
+SECRET_KEY = "3f5e2b8c9d1e4f7a8b9c0d1e2f3a4b5c"
 
 class User:
     def __init__(self, username, password):
         self.username = username
-        self.password = generate_password_hash(password)
+        self._password = password
 
     def check_password(self, password):
-        return check_password_hash(self.password, password)
+        return self._password == password
 
 class UserAuth:
     def __init__(self):
@@ -18,34 +16,15 @@ class UserAuth:
 
     def register(self, username, password):
         if username in self.users:
-            raise ValueError("User already exists")
-        user = User(username, password)
-        self.users[username] = user
-        self.validate_user_data(user)
+            raise ValueError("Username already exists")
+        self.users[username] = User(username, password)
         return {"username": username}
 
     def login(self, username, password):
-        user = self.users.get(username)
-        if not user or not user.check_password(password):
-            raise ValueError("Invalid username or password")
-        token = jwt.encode({
-            'username': username,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)
-        }, SECRET_KEY, algorithm='HS256')
+        if username not in self.users:
+            raise ValueError("Invalid username")
+        user = self.users[username]
+        if not user.check_password(password):
+            raise ValueError("Invalid password")
+        token = jwt.encode({"username": username}, SECRET_KEY, algorithm='HS256')
         return token
-
-    def ensure_ffed_compatibility(self):
-        # Placeholder for ensuring compatibility with FfeD framework
-        pass
-
-    def validate_user_data(self, user):
-        # Input validation
-        if not user.username or not user.password:
-            raise ValueError("User data is incomplete")
-        # Data cleaning
-        user.username = user.username.strip()
-        user.password = user.password.strip()
-
-    def validate_all_users(self):
-        for user in self.users.values():
-            self.validate_user_data(user)
