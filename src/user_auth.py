@@ -1,6 +1,6 @@
 import jwt
 
-SECRET_KEY = "3f5e2b8c9d1e4f7a8b9c0d1e2f3a4b5c"
+SECRET_KEY = "your  secret key"
 
 class User:
     def __init__(self, username, password):
