@@ -1,48 +1,41 @@
 class Project:
-    def __init__(self, name, description):
+    def __init__(self, id, name, description):
+        self.id = id
         self.name = name
         self.description = description
 
 class ProjectManager:
     def __init__(self):
-        self.projects = []
-        self.project_id_counter = 1
+        self.projects = {}
+        self.next_id = 1
 
     def add_project(self, name, description):
-        project = Project(name, description)
-        project.id = self.project_id_counter
-        self.project_id_counter += 1
-        self.projects.append(project)
-        self.integrate_ffed_for_project(project)
+        project = Project(self.next_id, name, description)
+        self.projects[self.next_id] = project
+        self.next_id += 1
         return project
 
     def edit_project(self, project_id, name, description):
-        project = self.get_project_by_id(project_id)
-        if project:
-            project.name = name
-            project.description = description
+        if project_id not in self.projects:
+            raise ValueError("Project not found")
+        project = self.projects[project_id]
+        project.name = name
+        project.description = description
         return project
 
     def delete_project(self, project_id):
-        project = self.get_project_by_id(project_id)
-        if project:
-            self.projects.remove(project)
+        if project_id in self.projects:
+            del self.projects[project_id]
 
     def get_project_by_id(self, project_id):
-        for project in self.projects:
-            if project.id == project_id:
-                return project
-        return None
-
-    def get_all_projects(self):
-        return self.projects
+        return self.projects.get(project_id)
 
     def integrate_ffed_for_project(self, project):
-        # Placeholder for integrating FfeD framework for project prediction
+        # Placeholder for FfeD framework integration
         pass
 
     def gather_information_for_project(self, project):
-        # Placeholder for automatically gathering information for new projects
+        # Placeholder for FfeD framework information gathering
         pass
 
     def validate_project_data(self, project):
@@ -54,5 +47,5 @@ class ProjectManager:
         project.description = project.description.strip()
 
     def validate_all_projects(self):
-        for project in self.projects:
+        for project in self.projects.values():
             self.validate_project_data(project)

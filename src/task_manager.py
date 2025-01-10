@@ -1,5 +1,6 @@
 class Task:
-    def __init__(self, title, due_date, priority, project_id):
+    def __init__(self, id, title, due_date, priority, project_id):
+        self.id = id
         self.title = title
         self.due_date = due_date
         self.priority = priority
@@ -8,47 +9,43 @@ class Task:
 
 class TaskManager:
     def __init__(self):
-        self.tasks = []
-        self.task_id_counter = 1
+        self.tasks = {}
+        self.next_id = 1
 
     def add_task(self, title, due_date, priority, project_id):
-        task = Task(title, due_date, priority, project_id)
-        task.id = self.task_id_counter
-        self.task_id_counter += 1
-        self.tasks.append(task)
-        self.integrate_ffed_for_task(task)
+        task = Task(self.next_id, title, due_date, priority, project_id)
+        self.tasks[self.next_id] = task
+        self.next_id += 1
         return task
 
     def edit_task(self, task_id, title, due_date, priority):
-        task = self.get_task_by_id(task_id)
-        if task:
-            task.title = title
-            task.due_date = due_date
-            task.priority = priority
+        if task_id not in self.tasks:
+            raise ValueError("Task not found")
+        task = self.tasks[task_id]
+        task.title = title
+        task.due_date = due_date
+        task.priority = priority
         return task
 
     def mark_task_complete(self, task_id):
-        task = self.get_task_by_id(task_id)
-        if task:
-            task.completed = True
+        if task_id not in self.tasks:
+            raise ValueError("Task not found")
+        task = self.tasks[task_id]
+        task.completed = True
         return task
 
     def delete_task(self, task_id):
-        task = self.get_task_by_id(task_id)
-        if task:
-            self.tasks.remove(task)
+        if task_id in self.tasks:
+            del self.tasks[task_id]
 
     def get_task_by_id(self, task_id):
-        for task in self.tasks:
-            if task.id == task_id:
-                return task
-        return None
+        return self.tasks.get(task_id)
 
     def get_tasks_by_project(self, project_id):
-        return [task for task in self.tasks if task.project_id == project_id]
+        return [task for task in self.tasks.values() if task.project_id == project_id]
 
     def integrate_ffed_for_task(self, task):
-        # Placeholder for integrating FfeD framework for task prediction
+        # Placeholder for FfeD framework integration
         pass
 
     def gather_information_for_task(self, task):
@@ -68,5 +65,5 @@ class TaskManager:
         task.priority = task.priority.strip()
 
     def validate_all_tasks(self):
-        for task in self.tasks:
+        for task in self.tasks.values():
             self.validate_task_data(task)
