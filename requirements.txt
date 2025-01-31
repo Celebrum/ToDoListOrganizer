@@ -10,4 +10,4 @@ requests>=2.25.1,<3.0
 aiohttp>=3.8.1,<4.0
 numpy>=1.21.0
 scikit-learn>=1.0.2
-codeproject.ai-sdk>=1.0.0
+codeproject.ai-sdk>=0.0.21
