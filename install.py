@@ -2,9 +2,10 @@ import json
 import os
 import shutil
 import subprocess
+import argparse
 
 
-def install_module():
+def install_module(path):
     # Load module configuration
     with open('module.json', 'r') as f:
         module_config = json.load(f)
@@ -17,7 +18,7 @@ def install_module():
     subprocess.check_call(['pip', 'install', '-r', 'requirements.txt'])
 
     # Copy module files to CodeProject.AI Server modules directory
-    ai_server_path = "Z:/CodeProject.AI-Server/modules/ToDoListOrganizer"
+    ai_server_path = path
     os.makedirs(ai_server_path, exist_ok=True)
     
     files_to_copy = [
@@ -37,4 +38,7 @@ def install_module():
     print(f"Module installed successfully at {ai_server_path}")
 
 if __name__ == "__main__":
-    install_module()
+    parser = argparse.ArgumentParser(description='Install ToDoListOrganizer module.')
+    parser.add_argument('--path', type=str, required=True, help='Path to install the module')
+    args = parser.parse_args()
+    install_module(args.path)

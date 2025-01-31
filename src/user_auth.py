@@ -1,6 +1,7 @@
 import jwt
+import os
 
-SECRET_KEY = "your  secret key"
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 class User:
     def __init__(self, username, password):
