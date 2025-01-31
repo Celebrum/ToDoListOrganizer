@@ -63,8 +63,8 @@ to_do_organizer/
 ### Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/githubnext/workspace-blank.git
-   cd workspace-blank
+   git clone https://github.com/Celebrum/ToDoListOrganizer.git
+   cd ToDoListOrganizer
    ```
 
 2. Install the required dependencies:
