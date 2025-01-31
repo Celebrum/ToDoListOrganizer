@@ -67,6 +67,34 @@ def tasks():
                  "completed": t.completed} for t in task_manager.tasks.values()]
         return jsonify(tasks), 200
 
+# Healthcare specific routes
+@app.route('/api/tasks/<int:task_id>/healthcare-context', methods=['POST'])
+def add_healthcare_context(task_id):
+    data = request.get_json()
+    try:
+        context = HealthcareContext(data['context'])
+        clinical_priority = ClinicalPriority(data.get('clinical_priority'))
+        task = task_manager.add_healthcare_context(task_id, context, clinical_priority)
+        return jsonify({
+            "id": task.id,
+            "healthcare_context": task.healthcare_context.value,
+            "clinical_priority": task.clinical_priority.value if task.clinical_priority else None
+        }), 200
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 400
+
+@app.route('/api/tasks/<int:task_id>/evidence', methods=['POST'])
+def add_evidence(task_id):
+    data = request.get_json()
+    try:
+        task = task_manager.add_evidence(task_id, data['evidence'])
+        return jsonify({
+            "id": task.id,
+            "evidence_count": len(task.evidence_base)
+        }), 200
+    except ValueError as e:
+        return jsonify({"error": str(e)}), 400
+
 # Project routes
 @app.route('/api/projects', methods=['GET', 'POST'])
 def projects():
