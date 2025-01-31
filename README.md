@@ -22,7 +22,7 @@ A simple personal To-Do List Organizer that allows users to add, edit, mark comp
 to_do_organizer/
 │
 ├── src/
-│   ├── main.py             # Main entry point of the application
+│   ├── app.py              # Main entry point of the application
 │   ├── task_manager.py     # Handles all task-related operations
 │   ├── user_auth.py        # Handles user registration and login
 │   └── project_manager.py  # Manages project-related operations
@@ -80,7 +80,7 @@ to_do_organizer/
 
 2. Run the application:
    ```
-   python main.py
+   python app.py
    ```
 
 ### Running Tests
@@ -252,3 +252,52 @@ The data center creation mechanism leverages Microsoft Access, OneDrive, Excel, 
 7. **Periodic Audits**: Schedule periodic audits to review and validate the data in your databases.
 
 By following these steps, you can create a self-sustaining data center that continuously generates and updates content with minimal manual intervention.
+
+### Phi Framework Integration
+
+The phi framework has been integrated into the application to enhance the precision of calculations for rotation speed, Foucault’s pendulum, and Coriolis force.
+
+#### Setup
+
+1. Ensure you have the necessary dependencies installed:
+   ```
+   pip install -r requirements.txt
+   ```
+
+2. The phi framework is integrated within the `src/ffed_framework.py` file.
+
+#### Usage
+
+- The phi framework is automatically invoked when performing calculations for rotation speed, Foucault’s pendulum, and Coriolis force.
+- It incorporates phi-based calculations to provide more precise results.
+
+For more details on the phi framework, refer to the implementation in the `src/ffed_framework.py` file.
+
+## Detailed Descriptions of Phi Framework Functions
+
+### Rotation Speed Calculation
+
+#### `rotation_speed(latitude)`
+- Calculates the rotation speed based on the given latitude using phi-based calculations.
+
+### Foucault’s Pendulum Calculation
+
+#### `foucault_pendulum(latitude)`
+- Calculates the period of Foucault’s pendulum based on the given latitude using phi-based calculations.
+
+### Coriolis Force Calculation
+
+#### `coriolis_force(latitude)`
+- Calculates the Coriolis force based on the given latitude using phi-based calculations.
+
+### Time Adjustments for ϕ-Periodicity
+
+#### `time_adjustments(T)`
+- Adjusts the given time for ϕ-periodicity.
+
+### Latitude Scaling
+
+#### `latitude_scaling(latitude)`
+- Scales the given latitude incorporating ϕ-harmonics for fractal oscillations.
+
+By following these steps, you can ensure that the phi framework is fully integrated and enhances the application's capabilities.
