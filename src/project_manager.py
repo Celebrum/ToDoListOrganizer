@@ -1,3 +1,6 @@
+from .ffed_framework import FfeDFramework
+from .gpt2_flask_api import GPT2FlaskAPI
+
 class Project:
     def __init__(self, id, name, description):
         self.id = id
@@ -8,11 +11,15 @@ class ProjectManager:
     def __init__(self):
         self.projects = {}
         self.next_id = 1
+        self.ffed_framework = FfeDFramework()
+        self.gpt2_flask_api = GPT2FlaskAPI()
 
     def add_project(self, name, description):
         project = Project(self.next_id, name, description)
         self.projects[self.next_id] = project
         self.next_id += 1
+        self.integrate_ffed_for_project(project)
+        self.gather_information_for_project(project)
         return project
 
     def edit_project(self, project_id, name, description):
@@ -31,18 +38,17 @@ class ProjectManager:
         return self.projects.get(project_id)
 
     def integrate_ffed_for_project(self, project):
-        # Placeholder for FfeD framework integration
-        pass
+        self.ffed_framework.prediction_system()
+        self.ffed_framework.search_and_scrape()
 
     def gather_information_for_project(self, project):
-        # Placeholder for FfeD framework information gathering
-        pass
+        prompt = f"Generate content for project: {project.name}"
+        response = self.gpt2_flask_api.generate_content({"prompt": prompt})
+        project.generated_content = response.get('content', '')
 
     def validate_project_data(self, project):
-        # Input validation
         if not project.name or not project.description:
             raise ValueError("Project data is incomplete")
-        # Data cleaning
         project.name = project.name.strip()
         project.description = project.description.strip()
 
