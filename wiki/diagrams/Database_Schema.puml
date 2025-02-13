@@ -1,0 +1,28 @@
+@startuml
+entity "Users" {
+  * id : INT
+  --
+  username : VARCHAR
+  password : VARCHAR
+}
+
+entity "Tasks" {
+  * id : INT
+  --
+  title : VARCHAR
+  due_date : DATE
+  priority : VARCHAR
+  project_id : INT
+  completed : BOOLEAN
+}
+
+entity "Projects" {
+  * id : INT
+  --
+  name : VARCHAR
+  description : VARCHAR
+}
+
+Users ||--o{ Tasks : "has"
+Projects ||--o{ Tasks : "contains"
+@enduml
