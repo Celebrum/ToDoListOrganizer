@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 import shutil
@@ -17,6 +18,9 @@ def install_module(path):
     # Install dependencies
     subprocess.check_call(['pip', 'install', '-r', 'requirements.txt'])
 
+    # Install Node.js dependencies
+    subprocess.check_call(['npm', 'install'])
+
     # Copy module files to CodeProject.AI Server modules directory
     ai_server_path = path
     os.makedirs(ai_server_path, exist_ok=True)
@@ -28,6 +32,11 @@ def install_module(path):
         'src',
         'requirements.txt'
     ]
+
+    files_to_copy.extend([
+        'electron',
+        'package.json'
+    ])
 
     for file in files_to_copy:
         if os.path.isdir(file):

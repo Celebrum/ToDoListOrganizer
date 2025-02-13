@@ -22,7 +22,7 @@ A simple personal To-Do List Organizer that allows users to add, edit, mark comp
 to_do_organizer/
 │
 ├── src/
-│   ├── main.py             # Main entry point of the application
+│   ├── app.py              # Main entry point of the application
 │   ├── task_manager.py     # Handles all task-related operations
 │   ├── user_auth.py        # Handles user registration and login
 │   └── project_manager.py  # Manages project-related operations
@@ -63,8 +63,8 @@ to_do_organizer/
 ### Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/githubnext/workspace-blank.git
-   cd workspace-blank
+   git clone https://github.com/Celebrum/ToDoListOrganizer.git
+   cd ToDoListOrganizer
    ```
 
 2. Install the required dependencies:
@@ -80,7 +80,7 @@ to_do_organizer/
 
 2. Run the application:
    ```
-   python main.py
+   python app.py
    ```
 
 ### Running Tests
@@ -255,37 +255,37 @@ By following these steps, you can create a self-sustaining data center that cont
 
 ### Phi Framework Integration
 
-The phi framework has been integrated into the application to enhance the precision of scientific calculations. The phi framework is based on the golden ratio (ϕ ≈ 1.618) and is used for precise calculations in rotation speed, Foucault’s pendulum, and Coriolis force.
-
-#### Setup
-
-1. Ensure you have the necessary dependencies installed:
-   ```
-   pip install -r requirements.txt
-   ```
-
-2. The phi framework is integrated within the `src/ffed_framework.py` file.
-
-#### Usage
-
-- The phi framework is automatically invoked when performing scientific calculations.
-- It incorporates ϕ-harmonics for fractal oscillations and time adjustments for ϕ-periodicity.
-- The framework enhances the accuracy of calculations for rotation speed, Foucault’s pendulum, and Coriolis force.
+- The phi framework is automatically invoked when performing calculations for rotation speed, Foucault’s pendulum, and Coriolis force.
+- It incorporates phi-based calculations to provide more precise results.
 
 For more details on the phi framework, refer to the implementation in the `src/ffed_framework.py` file.
 
-### Detailed Descriptions of Phi Framework Functions
+## Detailed Descriptions of Phi Framework Functions
+
+### Rotation Speed Calculation
 
 #### `rotation_speed(latitude)`
-- Calculates the rotation speed based on the given latitude using the phi framework.
-- Incorporates ϕ-harmonics for fractal oscillations and time adjustments for ϕ-periodicity.
+- Calculates the rotation speed based on the given latitude using phi-based calculations.
+
+### Foucault’s Pendulum Calculation
 
 #### `foucault_pendulum(latitude)`
-- Calculates the period of Foucault’s pendulum based on the given latitude using the phi framework.
-- Adjusts the sine function to ϕ-periodicity for more accurate calculations.
+- Calculates the period of Foucault’s pendulum based on the given latitude using phi-based calculations.
+
+### Coriolis Force Calculation
 
 #### `coriolis_force(latitude)`
-- Calculates the Coriolis force based on the given latitude using the phi framework.
-- Redefines angular velocity with ϕ-periodicity for more precise calculations.
+- Calculates the Coriolis force based on the given latitude using phi-based calculations.
 
-By integrating the phi framework, the application achieves more accurate and precise scientific calculations, enhancing its overall capabilities.
+### Time Adjustments for ϕ-Periodicity
+
+#### `time_adjustments(T)`
+- Adjusts the given time for ϕ-periodicity.
+
+### Latitude Scaling
+
+#### `latitude_scaling(latitude)`
+- Scales the given latitude incorporating ϕ-harmonics for fractal oscillations.
+
+By following these steps, you can ensure that the phi framework is fully integrated and enhances the application's capabilities.
+

@@ -1,3 +1,6 @@
+from .domain.healthcare_models import ClinicalPriority, HealthcareContext
+
+
 class Task:
     def __init__(self, id, title, due_date, priority, project_id):
         self.id = id
@@ -6,6 +9,10 @@ class Task:
         self.priority = priority
         self.project_id = project_id
         self.completed = False
+        self.healthcare_context = None
+        self.clinical_priority = None
+        self.research_domain = None
+        self.evidence_base = []
 
 class TaskManager:
     def __init__(self):
@@ -67,3 +74,19 @@ class TaskManager:
     def validate_all_tasks(self):
         for task in self.tasks.values():
             self.validate_task_data(task)
+
+    def add_healthcare_context(self, task_id, context: HealthcareContext, 
+                             clinical_priority: ClinicalPriority = None):
+        task = self.get_task_by_id(task_id)
+        if task:
+            task.healthcare_context = context
+            task.clinical_priority = clinical_priority
+            return task
+        raise ValueError("Task not found")
+
+    def add_evidence(self, task_id, evidence_data):
+        task = self.get_task_by_id(task_id)
+        if task:
+            task.evidence_base.append(evidence_data)
+            return task
+        raise ValueError("Task not found")
