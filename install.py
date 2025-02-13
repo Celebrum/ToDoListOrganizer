@@ -3,6 +3,7 @@ import json
 import os
 import shutil
 import subprocess
+import argparse
 
 
 def install_module(path):

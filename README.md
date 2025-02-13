@@ -255,19 +255,6 @@ By following these steps, you can create a self-sustaining data center that cont
 
 ### Phi Framework Integration
 
-The phi framework has been integrated into the application to enhance the precision of calculations for rotation speed, Foucault’s pendulum, and Coriolis force.
-
-#### Setup
-
-1. Ensure you have the necessary dependencies installed:
-   ```
-   pip install -r requirements.txt
-   ```
-
-2. The phi framework is integrated within the `src/ffed_framework.py` file.
-
-#### Usage
-
 - The phi framework is automatically invoked when performing calculations for rotation speed, Foucault’s pendulum, and Coriolis force.
 - It incorporates phi-based calculations to provide more precise results.
 
@@ -301,3 +288,4 @@ For more details on the phi framework, refer to the implementation in the `src/f
 - Scales the given latitude incorporating ϕ-harmonics for fractal oscillations.
 
 By following these steps, you can ensure that the phi framework is fully integrated and enhances the application's capabilities.
+
