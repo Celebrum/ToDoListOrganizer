@@ -15,3 +15,11 @@ class Config:
     
     # OpenAI settings
     OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+    
+    # FfeDFramework settings
+    FFE_D_FRAMEWORK_SETTING_1 = os.getenv('FFE_D_FRAMEWORK_SETTING_1', 'default_value_1')
+    FFE_D_FRAMEWORK_SETTING_2 = os.getenv('FFE_D_FRAMEWORK_SETTING_2', 'default_value_2')
+    
+    # GPT2FlaskAPI settings
+    GPT2_FLASK_API_SETTING_1 = os.getenv('GPT2_FLASK_API_SETTING_1', 'default_value_1')
+    GPT2_FLASK_API_SETTING_2 = os.getenv('GPT2_FLASK_API_SETTING_2', 'default_value_2')

@@ -1,5 +1,6 @@
 from .domain.healthcare_models import ClinicalPriority, HealthcareContext
-
+from .ffed_framework import FfeDFramework
+from .gpt2_flask_api import GPT2FlaskAPI
 
 class Task:
     def __init__(self, id, title, due_date, priority, project_id):
@@ -18,11 +19,15 @@ class TaskManager:
     def __init__(self):
         self.tasks = {}
         self.next_id = 1
+        self.ffed_framework = FfeDFramework()
+        self.gpt2_flask_api = GPT2FlaskAPI()
 
     def add_task(self, title, due_date, priority, project_id):
         task = Task(self.next_id, title, due_date, priority, project_id)
         self.tasks[self.next_id] = task
         self.next_id += 1
+        self.integrate_ffed_for_task(task)
+        self.gather_information_for_task(task)
         return task
 
     def edit_task(self, task_id, title, due_date, priority):
@@ -52,21 +57,19 @@ class TaskManager:
         return [task for task in self.tasks.values() if task.project_id == project_id]
 
     def integrate_ffed_for_task(self, task):
-        # Placeholder for FfeD framework integration
-        pass
+        self.ffed_framework.prediction_system()
+        self.ffed_framework.search_and_scrape()
 
     def gather_information_for_task(self, task):
-        # Placeholder for automatically gathering information for new tasks
-        pass
+        prompt = f"Generate content for task: {task.title}"
+        response = self.gpt2_flask_api.generate_content({"prompt": prompt})
+        task.generated_content = response.get('content', '')
 
     def validate_task_data(self, task):
-        # Input validation
         if not task.title or not task.due_date or not task.priority:
             raise ValueError("Task data is incomplete")
-        # Database constraints
         if task.priority not in ["Low", "Medium", "High"]:
             raise ValueError("Invalid priority value")
-        # Data cleaning
         task.title = task.title.strip()
         task.due_date = task.due_date.strip()
         task.priority = task.priority.strip()

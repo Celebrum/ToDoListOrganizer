@@ -8,6 +8,8 @@ from src.config import Config
 from src.db import init_db
 from src.project_manager import ProjectManager
 from src.task_manager import TaskManager
+from src.ffed_framework import FfeDFramework
+from src.gpt2_flask_api import GPT2FlaskAPI
 
 load_dotenv()
 
@@ -24,6 +26,10 @@ def create_app():
     # Initialize managers
     task_manager = TaskManager()
     project_manager = ProjectManager()
+    
+    # Initialize AI components
+    ffed_framework = FfeDFramework()
+    gpt2_flask_api = GPT2FlaskAPI()
 
     @app.route('/api/tasks', methods=['GET', 'POST'])
     def tasks():
