@@ -255,6 +255,46 @@ By following these steps, you can create a self-sustaining data center that cont
 
 ### Phi Framework Integration
 
+The phi framework has been integrated into the application to enhance the precision of calculations related to rotation speed, Foucault’s pendulum, and Coriolis force.
+
+#### Setup
+
+1. Ensure you have the necessary dependencies installed:
+   ```
+   pip install -r requirements.txt
+   ```
+
+2. The phi framework is integrated within the `src/ffed_framework.py` file.
+
+#### Usage
+
+- The phi framework is automatically invoked when performing calculations related to rotation speed, Foucault’s pendulum, and Coriolis force.
+- It provides more precise calculations by incorporating phi-based adjustments and harmonics.
+
+For more details on the phi framework, refer to the implementation in the `src/ffed_framework.py` file.
+
+## Detailed Descriptions of Phi-Based Functions and Their Usage
+
+### Rotation Speed Function
+
+#### `rotation_speed(latitude)`
+- Calculates the rotation speed at a given latitude using the phi framework.
+- Incorporates phi-based adjustments and harmonics for more precise calculations.
+
+### Foucault’s Pendulum Function
+
+#### `foucault_pendulum(latitude)`
+- Calculates the period of Foucault’s pendulum at a given latitude using the phi framework.
+- Adjusts the sine function to phi periodicity for more accurate results.
+
+### Coriolis Force Function
+
+#### `coriolis_force(latitude)`
+- Calculates the Coriolis force at a given latitude using the phi framework.
+- Redefines angular velocity with phi-based adjustments for enhanced precision.
+
+By integrating the phi framework, the application achieves more accurate and reliable calculations for rotation speed, Foucault’s pendulum, and Coriolis force.
+=======
 - The phi framework is automatically invoked when performing calculations for rotation speed, Foucault’s pendulum, and Coriolis force.
 - It incorporates phi-based calculations to provide more precise results.
 
@@ -365,3 +405,4 @@ These diagrams are created using PlantUML and embedded in the Markdown files.
 ## Note on FfeD Algorithm
 
 Please protect the FfeD algorithm but share as much knowledge on the phi framework. The rest is all free to be shared, but because of the FfeD framework, it cannot be used for selling this tool. It is free to use, install, and share, but no profit can be made without my consent. Free open source can use this tool to build other tools but cannot include the code part with the FfeD algorithm I developed. Anyone who wants to use the algorithm needs to contact and communicate with neural_network@brain.scrde.ca. Otherwise, everything else is free to use or sell, including the mathematics in the phi framework.
+

@@ -5,7 +5,6 @@ import shutil
 import subprocess
 import argparse
 
-
 def install_module(path):
     # Load module configuration
     with open('module.json', 'r') as f:
