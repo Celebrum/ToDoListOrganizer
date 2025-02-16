@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Organizer</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>To-Do List Organizer</h1>
+    </header>
+    <main>
+        <section id="task-management">
+            <h2>Task Management</h2>
+            <form id="add-task-form">
+                <label for="task-title">Task Title:</label>
+                <input type="text" id="task-title" placeholder="Task Title" required>
+                <label for="task-due-date">Due Date:</label>
+                <input type="date" id="task-due-date" required>
+                <label for="task-priority">Priority:</label>
+                <select id="task-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <label for="task-project">Project:</label>
+                <select id="task-project">
+                    <!-- Project options will be populated dynamically -->
+                </select>
+                <button type="submit">Add Task</button>
+            </form>
+            <ul id="task-list">
+                <!-- Task items will be populated dynamically -->
+            </ul>
+        </section>
+        <section id="project-categorization">
+            <h2>Project Categorization</h2>
+            <form id="add-project-form">
+                <label for="project-name">Project Name:</label>
+                <input type="text" id="project-name" placeholder="Project Name" required>
+                <label for="project-description">Project Description:</label>
+                <input type="text" id="project-description" placeholder="Project Description" required>
+                <button type="submit">Add Project</button>
+            </form>
+            <ul id="project-list">
+                <!-- Project items will be populated dynamically -->
+            </ul>
+        </section>
+    </main>
+    <script src="/static/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fetch tasks
+            fetch('/api/tasks')
+                .then(response => response.json())
+                .then(tasks => {
+                    const taskList = document.getElementById('task-list');
+                    tasks.forEach(task => {
+                        const li = document.createElement('li');
+                        li.textContent = `${task.title} - ${task.dueDate} - ${task.priority}`;
+                        taskList.appendChild(li);
+                    });
+                });
+
+            // Fetch projects
+            fetch('/api/projects')
+                .then(response => response.json())
+                .then(projects => {
+                    const projectList = document.getElementById('project-list');
+                    const taskProjectSelect = document.getElementById('task-project');
+                    projects.forEach(project => {
+                        const li = document.createElement('li');
+                        li.textContent = project.name;
+                        projectList.appendChild(li);
+
+                        const option = document.createElement('option');
+                        option.value = project.id;
+                        option.textContent = project.name;
+                        taskProjectSelect.appendChild(option);
+                    });
+                });
+        });
+    </script>
+</body>
+</html>
+</html>

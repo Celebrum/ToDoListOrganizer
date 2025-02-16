@@ -22,7 +22,7 @@ A simple personal To-Do List Organizer that allows users to add, edit, mark comp
 to_do_organizer/
 │
 ├── src/
-│   ├── main.py             # Main entry point of the application
+│   ├── app.py              # Main entry point of the application
 │   ├── task_manager.py     # Handles all task-related operations
 │   ├── user_auth.py        # Handles user registration and login
 │   └── project_manager.py  # Manages project-related operations
@@ -63,8 +63,8 @@ to_do_organizer/
 ### Installation
 1. Clone the repository:
    ```
-   git clone https://github.com/githubnext/workspace-blank.git
-   cd workspace-blank
+   git clone https://github.com/Celebrum/ToDoListOrganizer.git
+   cd ToDoListOrganizer
    ```
 
 2. Install the required dependencies:
@@ -80,7 +80,7 @@ to_do_organizer/
 
 2. Run the application:
    ```
-   python main.py
+   python app.py
    ```
 
 ### Running Tests
@@ -294,3 +294,115 @@ For more details on the phi framework, refer to the implementation in the `src/f
 - Redefines angular velocity with phi-based adjustments for enhanced precision.
 
 By integrating the phi framework, the application achieves more accurate and reliable calculations for rotation speed, Foucault’s pendulum, and Coriolis force.
+=======
+- The phi framework is automatically invoked when performing calculations for rotation speed, Foucault’s pendulum, and Coriolis force.
+- It incorporates phi-based calculations to provide more precise results.
+
+For more details on the phi framework, refer to the implementation in the `src/ffed_framework.py` file.
+
+## Detailed Descriptions of Phi Framework Functions
+
+### Rotation Speed Calculation
+
+#### `rotation_speed(latitude)`
+- Calculates the rotation speed based on the given latitude using phi-based calculations.
+
+### Foucault’s Pendulum Calculation
+
+#### `foucault_pendulum(latitude)`
+- Calculates the period of Foucault’s pendulum based on the given latitude using phi-based calculations.
+
+### Coriolis Force Calculation
+
+#### `coriolis_force(latitude)`
+- Calculates the Coriolis force based on the given latitude using phi-based calculations.
+
+### Time Adjustments for ϕ-Periodicity
+
+#### `time_adjustments(T)`
+- Adjusts the given time for ϕ-periodicity.
+
+### Latitude Scaling
+
+#### `latitude_scaling(latitude)`
+- Scales the given latitude incorporating ϕ-harmonics for fractal oscillations.
+
+By following these steps, you can ensure that the phi framework is fully integrated and enhances the application's capabilities.
+
+## Wiki
+
+The To-Do List Organizer is responsible for the care and maintenance of the wiki. The wiki is structured using GitHub Wiki, written in Markdown, and optionally hosted on GitHub Pages. Visual Studio Code is used to write and edit the Markdown files for the wiki. Git is used for version control to manage changes to the wiki content. PlantUML is used to create and embed diagrams in the Markdown files.
+
+### Contributing to the Wiki
+
+To contribute to the wiki, follow these steps:
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/Celebrum/ToDoListOrganizer.git
+   cd ToDoListOrganizer
+   ```
+
+2. Navigate to the `wiki` directory:
+   ```
+   cd wiki
+   ```
+
+3. Create a new branch for your changes:
+   ```
+   git checkout -b your-branch-name
+   ```
+
+4. Make your changes to the Markdown files.
+
+5. Commit your changes:
+   ```
+   git add .
+   git commit -m "Your commit message"
+   ```
+
+6. Push your changes to the remote repository:
+   ```
+   git push origin your-branch-name
+   ```
+
+7. Create a pull request on GitHub to merge your changes into the main branch.
+
+### Wiki Structure
+
+The wiki is organized into the following sections:
+
+1. [Home](wiki/Home.md)
+2. [Getting Started](wiki/Getting_Started.md)
+3. [Project Structure](wiki/Project_Structure.md)
+4. [API Documentation](wiki/API_Documentation.md)
+5. [User Guide](wiki/User_Guide.md)
+6. [Developer Guide](wiki/Developer_Guide.md)
+7. [Advanced Features](wiki/Advanced_Features.md)
+8. [Configuration](wiki/Configuration.md)
+9. [Troubleshooting](wiki/Troubleshooting.md)
+10. [Contributing](wiki/Contributing.md)
+11. [License](wiki/License.md)
+12. [Acknowledgements](wiki/Acknowledgements.md)
+
+### Diagrams
+
+The following specific diagrams are included in the wiki:
+
+1. Project structure diagram
+2. API endpoint diagram
+3. Database schema diagram
+4. User authentication flow diagram
+5. Task management flow diagram
+6. Project categorization flow diagram
+7. FfeD framework integration diagram
+8. Quantum functions diagram
+9. Phi framework integration diagram
+10. Power Automate flow diagram
+
+These diagrams are created using PlantUML and embedded in the Markdown files.
+
+## Note on FfeD Algorithm
+
+Please protect the FfeD algorithm but share as much knowledge on the phi framework. The rest is all free to be shared, but because of the FfeD framework, it cannot be used for selling this tool. It is free to use, install, and share, but no profit can be made without my consent. Free open source can use this tool to build other tools but cannot include the code part with the FfeD algorithm I developed. Anyone who wants to use the algorithm needs to contact and communicate with neural_network@brain.scrde.ca. Otherwise, everything else is free to use or sell, including the mathematics in the phi framework.
+

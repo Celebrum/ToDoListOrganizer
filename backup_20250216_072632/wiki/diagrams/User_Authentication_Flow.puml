@@ -1,0 +1,21 @@
+@startuml
+title User Authentication Flow
+
+actor User
+entity "User Database" as DB
+
+User -> (Register) : Register with username and password
+(Register) -> DB : Store user credentials
+DB -> (Register) : Acknowledge registration
+
+User -> (Login) : Login with username and password
+(Login) -> DB : Verify credentials
+DB -> (Login) : Return JWT token
+
+User -> (Access Application) : Access application with JWT token
+(Access Application) -> (Verify Token) : Verify JWT token
+(Verify Token) -> DB : Validate token
+DB -> (Verify Token) : Return validation result
+(Verify Token) -> (Access Application) : Grant or deny access
+
+@enduml
