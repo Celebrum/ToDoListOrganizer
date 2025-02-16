@@ -1,0 +1,41 @@
+@startuml
+package "FfeD Framework Integration" {
+  class "TaskManager" {
+    +add_task()
+    +edit_task()
+    +mark_task_complete()
+    +delete_task()
+    +get_task_by_id()
+    +get_tasks_by_project()
+    +integrate_ffed_for_task()
+    +gather_information_for_task()
+    +validate_task_data()
+    +validate_all_tasks()
+  }
+
+  class "ProjectManager" {
+    +add_project()
+    +edit_project()
+    +delete_project()
+    +get_project_by_id()
+    +integrate_ffed_for_project()
+    +gather_information_for_project()
+    +validate_project_data()
+    +validate_all_projects()
+  }
+
+  class "FfeDFramework" {
+    +advanced_listing()
+    +prediction_system()
+    +search_and_scrape()
+    +rotation_speed()
+    +foucault_pendulum()
+    +coriolis_force()
+    +time_adjustments()
+    +latitude_scaling()
+  }
+
+  TaskManager --> FfeDFramework : integrates
+  ProjectManager --> FfeDFramework : integrates
+}
+@enduml

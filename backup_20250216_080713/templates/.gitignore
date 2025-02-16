@@ -1,0 +1,33 @@
+# filepath: /C:/Users/Owner/Desktop/task orginiser/ToDoListOrganizer/.gitignore
+node_modules/
+*.log
+*.tmp
+.DS_Store
+/static/css/style.css
+/static/js/main.js
+# filepath: /C:/Users/Owner/Desktop/task orginiser/ToDoListOrganizer/.gitignore
+CeLeBrUm/CeLeBrUm-1/
+CeLeBrUm/CeLeBrUm/
+CodeProject.AI-Server/
+Heimdall/Heimdall/
+HydDdR-a/HydDdR-a/
+MindS/MindsDB/
+NeuUuR-o/NeuUuR-o/
+/OneDrive/.849C9593-D756-4E56-8D6E-42412F2A707B
+.deno/
+# filepath: /C:/Users/Owner/Desktop/task orginiser/ToDoListOrganizer/templates/.gitignore
+node_modules/
+*.log
+*.tmp
+.DS_Store
+/static/css/style.css
+/static/js/main.js
+CeLeBrUm/CeLeBrUm-1/
+CeLeBrUm/CeLeBrUm/
+CodeProject.AI-Server/
+Heimdall/Heimdall/
+HydDdR-a/HydDdR-a/
+MindS/MindsDB/
+NeuUuR-o/NeuUuR-o/
+/OneDrive/.849C9593-D756-4E56-8D6E-42412F2A707B
+.deno/

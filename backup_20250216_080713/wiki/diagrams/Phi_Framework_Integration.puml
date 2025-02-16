@@ -1,0 +1,17 @@
+@startuml
+package "Phi Framework Integration" {
+  class "FfeDFramework" {
+    +rotation_speed(latitude)
+    +foucault_pendulum(latitude)
+    +coriolis_force(latitude)
+    +time_adjustments(T)
+    +latitude_scaling(latitude)
+  }
+
+  FfeDFramework : rotation_speed
+  FfeDFramework : foucault_pendulum
+  FfeDFramework : coriolis_force
+  FfeDFramework : time_adjustments
+  FfeDFramework : latitude_scaling
+}
+@enduml

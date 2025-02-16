@@ -1,0 +1,37 @@
+@startuml
+title Project Categorization Flow
+
+start
+:User creates a new project;
+:ProjectManager validates project data;
+:ProjectManager adds project to the database;
+
+:User adds a new task;
+:TaskManager validates task data;
+:TaskManager adds task to the database;
+:TaskManager assigns task to the project;
+
+if (Task is valid?) then (yes)
+  :TaskManager saves task;
+else (no)
+  :TaskManager returns validation error;
+endif
+
+:User edits a task;
+:TaskManager validates updated task data;
+:TaskManager updates task in the database;
+
+if (Task is valid?) then (yes)
+  :TaskManager saves updated task;
+else (no)
+  :TaskManager returns validation error;
+endif
+
+:User marks task as complete;
+:TaskManager updates task status to complete;
+
+:User deletes a task;
+:TaskManager removes task from the database;
+
+stop
+@enduml

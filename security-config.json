@@ -1,0 +1,12 @@
+{
+  "auth_required": true,
+  "api_rate_limit": 100,
+  "encrypt_data": true,
+  "allowed_origins": [
+    "neural_flywhell"
+  ],
+  "integration": {
+    "neural_interface": "restricted",
+    "material_science": "private"
+  }
+}
