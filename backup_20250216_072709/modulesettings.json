@@ -1,0 +1,26 @@
+{
+    "server": {
+        "host": "localhost",
+        "port": 32168,
+        "baseURL": "http://localhost:32168/v1"
+    },
+    "ai": {
+        "analysis_endpoint": "/analyze",
+        "prediction_endpoint": "/predict",
+        "model": "gpt-3.5-turbo",
+        "max_tokens": 1000,
+        "codeproject_ai": {
+            "server_url": "http://localhost:32168",
+            "required": true,
+            "startup_check": true
+        }
+    },
+    "database": {
+        "type": "sqlite",
+        "path": "database.db"
+    },
+    "logging": {
+        "level": "INFO",
+        "file": "todo_organizer.log"
+    }
+}
